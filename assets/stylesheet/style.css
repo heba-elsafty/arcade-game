@@ -1,5 +1,6 @@
 body {
-  text-align: center; }
+  text-align: center;
+  font-family: Verdana, Geneva, Tahoma, sans-serif; }
   body .modal-overlay {
     position: absolute;
     top: 0;
@@ -11,11 +12,15 @@ body {
       position: relative;
       top: 50%;
       left: 50%;
-      width: 500px;
-      height: 500px;
+      width: 300px;
+      height: 200px;
       background: #fff;
       transform: translate(-50%, -50%);
-      padding: 10px; }
+      border-radius: 10px;
+      align-items: center;
+      display: flex;
+      flex-flow: column;
+      justify-content: center; }
     body .modal-overlay.is-hidden {
       visibility: hidden; }
   body .text-left {
@@ -24,5 +29,18 @@ body {
     text-align: center; }
   body .text-right {
     text-align: right; }
+  body h1 {
+    color: chocolate;
+    font-size: 2rem;
+    margin-top: 0; }
+  body .button {
+    background: #2a5da0;
+    border: 4px solid #3266aa;
+    padding: 10px 30px;
+    border-radius: 50px;
+    color: #fff; }
+    body .button:hover {
+      background: #205294;
+      border-color: #3a6fb6; }
 
 /*# sourceMappingURL=style.css.map */
