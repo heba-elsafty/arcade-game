@@ -86,9 +86,6 @@ class Gamer{
 				}
 		}
 
-			
-
-		
 		// Handle keyboard Input
 			// Update player's X and Y property according to input
 		handleInput(input){
@@ -137,9 +134,9 @@ class Gamer{
 	const bug4 = new Enemy(-101 , (85 * 2), 200);
 	const bug5 = new Enemy((-101 * 5) , (85 * 2), 200);
 	const allEnemies = [];
-	allEnemies.push(bug1,bug2,bug3,bug4,bug5);
 	// For each Enemy  create and push new Object into above array
-
+	allEnemies.push(bug1,bug2,bug3,bug4,bug5);
+	
 // This listens for key presses and sends the keys to your
 // Player.handleInput() method. You don't need to modify this.
 document.addEventListener('keyup', function(e) {
