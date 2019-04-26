@@ -1,33 +1,49 @@
 // Enemies our player must avoid
-class Enemy {
-	constructor() {
-		// Variables applied to each of our instances go here,
-		// we've provided one for you to get started
-		// x position
-		// y position
-		// The image/sprite for our enemies, this uses
-		// a helper we've provided to easily load images
-		this.sprite = 'assets/images/enemy-bug.png';
-	}
-	// Update the enemy's positionition, required method for game
-	// Parameter: dt, a time delta between ticks
-	update(dt) {
-		// You should multiply any movement by the dt parameter
-		// which will ensure the game runs at the same speed for
-		// all computers.
-		// if Enemy isn't passed boundary
+var Enemy = function(x,y,speed) {
+	// Variables applied to each of our instances go here,
+	// we've provided one for you to get started
+	
+	// x position
+	// y position
+		this.startY = 55;
+		this.step = 101;
+		this.speed = speed;
+		this.boundary = this.step * 5;
+		this.resetPosition = -this.step;
+		this.x = x;
+		this.y = y + this.startY;
+
+	// The image/sprite for our enemies, this uses
+	// a helper we've provided to easily load images
+	this.sprite = 'assets/images/enemy-bug.png';
+};
+
+// Update the enemy's position, required method for game
+// Parameter: dt, a time delta between ticks
+Enemy.prototype.update = function(dt) {
+	// You should multiply any movement by the dt parameter
+	// which will ensure the game runs at the same speed for
+	// all computers.
+	
+	// if Enemy isn't passed boundary
 		// move forward
 		// incressment X by speed * dt
 		// else
 		// Reset positionition to start
-	}
-	// Draw the enemy on the screen, required method for game
-	render() {
-		ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
-	}
-}
+		if(this.x < this.boundary){
+			// move forward
+			// increment x speed * dt
+			this.x += this.speed * dt;
+		} else{
+			this.x = this.resetPosition ;
+		}
+		
+};
 
-
+// Draw the enemy on the screen, required method for game
+Enemy.prototype.render = function() {
+	ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
+};
 
 // Now write your own player class
 // This class requires an update(), render() and
@@ -41,10 +57,10 @@ class Gamer{
 		this.step = 101;
 		this.jump = 85;
 		this.startX = this.step * 2;
-		this.startY = (this.jump * 5) - 30;
+		this.startY = (this.jump * 4) + 55;
 		this.x = this.startX;
 		this.y = this.startY;
-		
+		this.victory = false;
 		this.sprite = 'assets/images/char-boy.png';
 	}
 	// Methods
@@ -55,13 +71,23 @@ class Gamer{
 		}
 		
 		// Update positionition
-			// check collision here
-				// Did Player x ,y collide  with Enemy  (yes ==> reset method)
+		update(){
+		// check collision here
+			// Did Player x ,y collide  with Enemy  (yes ==> reset method)
+			for(let enemy of allEnemies){
+				if(this.y === enemy.y && (enemy.x + enemy.step / 2 > this.x && enemy.x < this.x + this.step / 2 )){
+					this.reset();
+				}
+			}
 			// check win here
 				// Did Player x ,y reach final tile  (yes ==> reset method)
-		update(){
-			
+				if (this.y === 55 ){
+					this.victory = true;
+				}
 		}
+
+			
+
 		
 		// Handle keyboard Input
 			// Update player's X and Y property according to input
@@ -83,7 +109,7 @@ class Gamer{
 					}
 					break;
 				case "down" : 
-					if (this.y < (this.jump * 5) - 30){
+					if (this.y < (this.jump * 4) + 55){
 						this.y += this.jump;
 					}
 					break;
@@ -92,6 +118,10 @@ class Gamer{
 			
 		// Reset Player
 			// set X and Y to starting X and Y
+		reset(){
+			this.x = this.startX;
+			this.y = this.startY;
+		}
 }
 
 // Now instantiate your objects.
@@ -101,7 +131,13 @@ class Gamer{
 	// New player Object
 	const player = new Gamer();
 	// init allEnemies array
-	const allEnemies = []
+	const bug1 = new Enemy(-101 , 0 ,300);
+	const bug2 = new Enemy(101 , 85 , 250);
+	const bug3 = new Enemy((-101 * 2.5) , 85, 250);
+	const bug4 = new Enemy(-101 , (85 * 2), 200);
+	const bug5 = new Enemy((-101 * 5) , (85 * 2), 200);
+	const allEnemies = [];
+	allEnemies.push(bug1,bug2,bug3,bug4,bug5);
 	// For each Enemy  create and push new Object into above array
 
 // This listens for key presses and sends the keys to your

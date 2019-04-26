@@ -3,12 +3,17 @@
 <head>
 		<meta charset="UTF-8">
 		<title>Effective JavaScript: Frogger</title>
-		<link rel="stylesheet" href="assets/css/style.css">
+		<link rel="stylesheet" href="assets/stylesheet/style.css">
 </head>
 <body>
 
 	<canvas></canvas>
-	
+	<div id="modal" class="is-hidden modal-overlay">
+		<div class="modal-body">
+			<h2>Game over</h2>
+			<button class="button-close">Replay Again</button>
+		</div>
+	</div>
 	
 	<script src="assets/js/resources.js"></script>
 	<script src="assets/js/app.js"></script>

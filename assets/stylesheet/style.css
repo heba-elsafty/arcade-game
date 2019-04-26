@@ -1,0 +1,28 @@
+body {
+  text-align: center; }
+  body .modal-overlay {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    background: rgba(0, 0, 0, 0.5); }
+    body .modal-overlay .modal-body {
+      position: relative;
+      top: 50%;
+      left: 50%;
+      width: 500px;
+      height: 500px;
+      background: #fff;
+      transform: translate(-50%, -50%);
+      padding: 10px; }
+    body .modal-overlay.is-hidden {
+      visibility: hidden; }
+  body .text-left {
+    text-align: left; }
+  body .text-center {
+    text-align: center; }
+  body .text-right {
+    text-align: right; }
+
+/*# sourceMappingURL=style.css.map */
