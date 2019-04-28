@@ -1,20 +1,33 @@
-# Classic Arcade Game Clone Project
+  <!-- TOC -->
 
-## Table of Contents
+- [Classic Arcade Game ](#arcade-game-udacity-fend-project)
+    - [Game Description](#game-description)
+    - [How to Play](#how-to-play)
+    - [Install and run](#install-and-run)
+    - [TODO](#todo)
+    - [Dependencies](#dependencies)
+    
 
-- [Instructions](#instructions)
-- [Contributing](#contributing)
+<!-- /TOC -->
 
-## Instructions
+## Game Description
+A fun game to challenge you to dodge the bugs and reach the water stream to score points. 
 
-Use this [rubric](https://review.udacity.com/#!/rubrics/15/view) for self-checking your submission.
+## How to Play
+The player should reach the water stream without hitting the bugs. The bugs have a variable speed. Everytime, the player hits a bug, score decreases by 1. Everytime the player reaches water, score gets incremented by 1.
 
-Make sure the functions you write are **object-oriented** - either class functions (like `Player` and `Enemy`) or class prototype functions such as `Enemy.prototype.checkCollisions`. Also make sure that the keyword `this` is used appropriately within your class and class prototype functions to refer to the object the function is called upon.
+## Install and run
+1. Clone the repository https://github.com/heba-elsafty/arcade-game
+2. Open the index.html in your browser
 
-Your **README.md** file should be updated with instructions on both how to 1. Run and 2. Play your arcade game.
 
-For detailed instructions on how to get started, check out this [guide](https://docs.google.com/document/d/1v01aScPjSWCCWQLIpFqvg3-vXLH2e8_SZQKC8jNO0Dc/pub?embedded=true).
+## TODO
+1. A scoring system, with lives
+2. A refined modal to show a final message. 
+3. Refined code with gameReset, gameInit functions to make the code more efficient
 
-## Contributing
+## Dependencies
+* HTML
+* CSS
+* Javascript ES6
 
-This repository is the starter code for _all_ Udacity students. Therefore, we most likely will not accept pull requests.
